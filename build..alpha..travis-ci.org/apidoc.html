@@ -1,0 +1,1477 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/vimeo/vimeo.js#readme"
+
+    >vimeo (v1.2.1)</a>
+</h1>
+<h4>A node.js library for the new Vimeo api</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo">module vimeo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo">
+            function <span class="apidocSignatureSpan">vimeo.</span>Vimeo
+            <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer">
+            function <span class="apidocSignatureSpan">vimeo.</span>filestreamer
+            <span class="apidocSignatureSpan">(file_path, upload_endpoint, progress_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.</span>Vimeo.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.</span>filestreamer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.</span>vimeo_module</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo.Vimeo">module vimeo.Vimeo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.Vimeo">
+            function <span class="apidocSignatureSpan">vimeo.</span>Vimeo
+            <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo.Vimeo.prototype">module vimeo.Vimeo.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype._applyDefaultRequestOptions">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_applyDefaultRequestOptions
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype._applyQuerystringParams">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_applyQuerystringParams
+            <span class="apidocSignatureSpan">(request_options, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype._buildRequestOptions">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_buildRequestOptions
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype._handleRequest">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_handleRequest
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype.accessToken">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>accessToken
+            <span class="apidocSignatureSpan">(code, redirect_uri, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype.buildAuthorizationEndpoint">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>buildAuthorizationEndpoint
+            <span class="apidocSignatureSpan">(redirect_uri, scope, state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype.generateClientCredentials">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>generateClientCredentials
+            <span class="apidocSignatureSpan">(scope, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype.request">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>request
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.Vimeo.prototype.streamingUpload">
+            function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>streamingUpload
+            <span class="apidocSignatureSpan">(path, video_uri, callback, progress_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_client_id</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_client_secret</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>access_token</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo.filestreamer">module vimeo.filestreamer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.filestreamer">
+            function <span class="apidocSignatureSpan">vimeo.</span>filestreamer
+            <span class="apidocSignatureSpan">(file_path, upload_endpoint, progress_callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo.filestreamer.prototype">module vimeo.filestreamer.prototype</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>sequential</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._closeFile">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_closeFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._error">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_error
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._getNewStart">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_getNewStart
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._putFile">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_putFile
+            <span class="apidocSignatureSpan">(start, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._ready">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_ready
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._streamChunk">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_streamChunk
+            <span class="apidocSignatureSpan">(start)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._upload_endpoint_request">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_upload_endpoint_request
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype._user_ready">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_user_ready
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype.error">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>error
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype.ready">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>ready
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.filestreamer.prototype.upload">
+            function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>upload
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_file_size</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>percentage</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_endpoint</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_fd</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_path</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>progress_callback</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vimeo.vimeo_module">module vimeo.vimeo_module</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vimeo.vimeo_module.Vimeo">
+            function <span class="apidocSignatureSpan">vimeo.vimeo_module.</span>Vimeo
+            <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.vimeo_module.</span>auth_endpoints</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vimeo.vimeo_module.</span>request_defaults</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo" id="apidoc.module.vimeo">module vimeo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo" id="apidoc.element.vimeo.Vimeo">
+        function <span class="apidocSignatureSpan">vimeo.</span>Vimeo
+        <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Vimeo(client_id, client_secret, access_token) {
+	this._client_id = client_id;
+	this._client_secret = client_secret;
+
+	if (access_token) {
+		this.access_token = access_token;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer" id="apidoc.element.vimeo.filestreamer">
+        function <span class="apidocSignatureSpan">vimeo.</span>filestreamer
+        <span class="apidocSignatureSpan">(file_path, upload_endpoint, progress_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileStreamer(file_path, upload_endpoint, progress_callback) {
+	if (!file_path) {
+		throw new Error(&#x27;You must provide a file path&#x27;);
+	}
+
+	if (!upload_endpoint) {
+		throw new Error(&#x27;You must provide an upload endpoint&#x27;);
+	}
+
+	this._endpoint = url_module.parse(upload_endpoint);
+	this._path = file_path;
+	this.progress_callback = progress_callback;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo.Vimeo" id="apidoc.module.vimeo.Vimeo">module vimeo.Vimeo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.Vimeo" id="apidoc.element.vimeo.Vimeo.Vimeo">
+        function <span class="apidocSignatureSpan">vimeo.</span>Vimeo
+        <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Vimeo(client_id, client_secret, access_token) {
+	this._client_id = client_id;
+	this._client_secret = client_secret;
+
+	if (access_token) {
+		this.access_token = access_token;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo.Vimeo.prototype" id="apidoc.module.vimeo.Vimeo.prototype">module vimeo.Vimeo.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype._applyDefaultRequestOptions" id="apidoc.element.vimeo.Vimeo.prototype._applyDefaultRequestOptions">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_applyDefaultRequestOptions
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_applyDefaultRequestOptions = function (options) {
+	var request_options = {
+		protocol : options.protocol || module.exports.request_defaults.protocol,
+		host : options.hostname || module.exports.request_defaults.hostname,
+		port : options.port || module.exports.request_defaults.port,
+		method : options.method || module.exports.request_defaults.method,
+		headers : options.headers || {},
+		body : &#x27;&#x27;,
+		path : options.path
+	};
+	var key = null;
+
+	// Apply the default headers
+	if (module.exports.request_defaults.headers) {
+		for (key in module.exports.request_defaults.headers) {
+			if (!request_options.headers[key]) {
+				request_options.headers[key] = module.exports.request_defaults.headers[key];
+			}
+		}
+	}
+
+	return request_options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype._applyQuerystringParams" id="apidoc.element.vimeo.Vimeo.prototype._applyQuerystringParams">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_applyQuerystringParams
+        <span class="apidocSignatureSpan">(request_options, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_applyQuerystringParams = function (request_options, options) {
+	var querystring = &#x27;&#x27;;
+
+	if (!options.query) {
+		return request_options.path;
+	}
+
+	// If we have parameters, apply them to the url
+	if (Object.keys(options.query).length) {
+		if (request_options.path.indexOf(&#x27;?&#x27;) &#x3c; 0) {
+			// If the existing path does not contain any parameters, apply them as the only options
+			querystring = &#x27;?&#x27; + qs_module.stringify(options.query);
+		} else {
+			// If the user already added parameters to the url, we want to add them as additional parameters
+			querystring = &#x27;&#x26;&#x27; + qs_module.stringify(options.query);
+		}
+	}
+
+	return request_options.path + querystring;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype._buildRequestOptions" id="apidoc.element.vimeo.Vimeo.prototype._buildRequestOptions">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_buildRequestOptions
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildRequestOptions = function (options) {
+	// set up the request object. we always use the options paramter first, and if no value is provided we fall back to request defaults
+	var request_options = this._applyDefaultRequestOptions(options);
+
+	// Apply the access tokens
+	if (this.access_token) {
+		request_options.headers.Authorization = &#x27;Bearer &#x27; + this.access_token;
+	} else if (this._client_id &#x26;&#x26; this._client_secret) {
+		request_options.headers.Authorization = &#x27;Basic &#x27; + new Buffer(this._client_id + &#x27;:&#x27; + this._client_secret).toString(&#x27;base64&#x27;);
+	}
+
+	// Set proper headers for POST, PATCH and PUT bodies
+	if ([&#x27;POST&#x27;,&#x27;PATCH&#x27;,&#x27;PUT&#x27;,&#x27;DELETE&#x27;].indexOf(request_options.method) !== -1 &#x26;&#x26; !request_options.headers[&#x27;Content-Type&#x27;]) {
+		request_options.headers[&#x27;Content-Type&#x27;] = &#x27;application/json&#x27;;
+
+	// Apply parameters to the url for GET requests
+	} else if (request_options.method === &#x27;GET&#x27;) {
+		request_options.path = this._applyQuerystringParams(request_options, options);
+	}
+
+	return request_options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype._handleRequest" id="apidoc.element.vimeo.Vimeo.prototype._handleRequest">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>_handleRequest
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleRequest = function (callback) {
+	return function (res) {
+		res.setEncoding(&#x27;utf8&#x27;);
+
+		var buffer = &#x27;&#x27;;
+
+		res.on(&#x27;readable&#x27;, function () {
+			buffer += res.read() || &#x27;&#x27;;
+		});
+
+		if (res.statusCode &#x3e;= 400) {
+			// failed api calls should wait for the response to end and then call the callback with an error.
+			res.on(&#x27;end&#x27;, function () {
+				var err = new Error(buffer);
+				callback(err, buffer, res.statusCode, res.headers);
+			});
+		} else {
+			// successful api calls should wait for the response to end and then call the callback with the response body
+			res.on(&#x27;end&#x27;, function () {
+				try {
+					var body = buffer.length ? JSON.parse(buffer) : {};
+				} catch (e) {
+					return callback(buffer, buffer, res.statusCode, res.headers);
+				}
+				callback(null, body, res.statusCode, res.headers);
+			});
+		}
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype.accessToken" id="apidoc.element.vimeo.Vimeo.prototype.accessToken">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>accessToken
+        <span class="apidocSignatureSpan">(code, redirect_uri, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">accessToken = function (code, redirect_uri, fn) {
+	var _self = this;
+
+	this.request({
+		method : &#x27;POST&#x27;,
+		hostname : module.exports.request_defaults.hostname,
+		path : auth_endpoints.accessToken,
+		query : {
+			grant_type : &#x27;authorization_code&#x27;,
+			code : code,
+			redirect_uri : redirect_uri
+		},
+		headers : {
+			&#x27;Content-Type&#x27; : &#x27;application/x-www-form-urlencoded&#x27;
+		}
+	}, function (err, body, status, headers) {
+		if (err) {
+			return fn(err, null, status, headers);
+		} else {
+			fn(null, body, status, headers);
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+3. If the user accepts your app, they will be redirected back to your redirect\_uri with a ````code```` and ````state```` query
+parameter (eg. http://yourredirect.com?code=abc&#x26;state=xyz).
+    1. You must validate that the ```status``` matches your status from step 1.
+    2. If the status is valid, you can exchange your code and redirect\_uri for an access token.
+
+```JavaScript
+        // redirect_uri must be provided, and must match your configured uri
+        lib.<span class="apidocCodeKeywordSpan">accessToken</span>(code, redirect_uri, function (err, token) {
+if (err) {
+        return response.end(&#x22;error\n&#x22; + err);
+}
+
+if (token.access_token) {
+        // At this state the code has been successfully exchanged for an access token
+        lib.access_token = token.access_token;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype.buildAuthorizationEndpoint" id="apidoc.element.vimeo.Vimeo.prototype.buildAuthorizationEndpoint">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>buildAuthorizationEndpoint
+        <span class="apidocSignatureSpan">(redirect_uri, scope, state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildAuthorizationEndpoint = function (redirect_uri, scope, state) {
+	var query = {
+		response_type : &#x27;code&#x27;,
+		client_id : this._client_id,
+		redirect_uri : redirect_uri
+	};
+
+	if (scope) {
+		if (Array.isArray(scope)) {
+			query.scope = scope.join(&#x27; &#x27;);
+		} else {
+			query.scope = scope;
+		}
+	} else {
+		query.scope = &#x27;public&#x27;;
+	}
+
+	if (state) {
+		query.state = state;
+	}
+
+	return module.exports.request_defaults.protocol + &#x27;//&#x27; + module.exports.request_defaults.hostname + auth_endpoints.authorization
+ + &#x27;?&#x27; + qs_module.stringify(query);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Authenticated
+
+
+1. Build a link to Vimeo so your users can authorize your app
+
+```JavaScript
+        var url = lib.<span class="apidocCodeKeywordSpan">buildAuthorizationEndpoint</span>(redirect_uri, scopes, state)
+```
+
+Name         | Type     | Description
+-------------|----------|------------
+redirect_uri | string   | The uri the user is redirected to in step 3. This value must be provided to every step of the authorization
+ process including creating your app, building your authorization endpoint and exchanging your authorization code for an access
+token
+scope        | array    | An array of permissions your token needs to access. You can read more at https://developer.vimeo.com/api
+/authentication#scopes
+state        | string   | A value unique to this authorization request. You should generate it randomly, and validate it in step
+ 3.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype.generateClientCredentials" id="apidoc.element.vimeo.Vimeo.prototype.generateClientCredentials">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>generateClientCredentials
+        <span class="apidocSignatureSpan">(scope, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generateClientCredentials = function (scope, fn) {
+	var query =  {
+		grant_type : &#x27;client_credentials&#x27;,
+	}
+
+	if (scope) {
+		if (Array.isArray(scope)) {
+			query.scope = scope.join(&#x27; &#x27;);
+		} else {
+			query.scope = scope;
+		}
+	} else {
+		query.scope = &#x27;public&#x27;;
+	}
+
+	this.request({
+		method : &#x27;POST&#x27;,
+		hostname : module.exports.request_defaults.hostname,
+		path : auth_endpoints.clientCredentials,
+		query : query,
+		headers : {
+			&#x27;Content-Type&#x27; : &#x27;application/x-www-form-urlencoded&#x27;
+		}
+	}, function (err, body, status, headers) {
+		if (err) {
+			return fn(err, null, status, headers);
+		} else {
+			fn(null, body, status, headers);
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Unauthenticated
+
+Unauthenticated API requests must generate an access token. You should not generate a new access token for each request, you should
+ request an access token once and use it forever.
+
+```JavaScript
+    // scope is an array of permissions your token needs to access. You can read more at https://developer.vimeo.com/api/authentication
+#supported-scopes
+    lib.<span class="apidocCodeKeywordSpan">generateClientCredentials</span>(scope, function (err, access_token) {
+if (err) {
+        throw err;
+}
+
+var token = access_token.access_token;
+
+// Other useful information is included alongside the access token
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype.request" id="apidoc.element.vimeo.Vimeo.prototype.request">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>request
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function vimeo_request(options, callback) {
+	var client = null;
+
+	// if a url was provided, build an options object
+	if (typeof options === &#x22;string&#x22;) {
+		options = url_module.parse(options, true);
+		options.method = &#x22;GET&#x22;;
+	}
+
+	// if we don&#x27;t have a path at this point, error. a path is the only required field. we have defaults for everything else important
+	if (typeof options.path !== &#x22;string&#x22;) {
+		return callback(new Error(&#x27;You must provide an api path&#x27;));
+	}
+
+	// Add leading slash to path if missing
+	if (options.path.charAt(0) !== &#x27;/&#x27;) {
+		options.path = &#x27;/&#x27; + options.path;
+	}
+
+	// Turn the provided options into options that are valid for client.request
+	var request_options = this._buildRequestOptions(options);
+
+	// Locate the proper client from the request protocol
+	client = request_options.protocol === &#x27;https:&#x27; ? https_module : http_module;
+
+	// Write the request body
+	if ([&#x27;POST&#x27;,&#x27;PATCH&#x27;,&#x27;PUT&#x27;,&#x27;DELETE&#x27;].indexOf(request_options.method) !== -1) {
+		if (request_options.headers[&#x27;Content-Type&#x27;] === &#x27;application/json&#x27;) {
+			request_options.body = JSON.stringify(options.query);
+		} else {
+			request_options.body = qs_module.stringify(options.query);
+		}
+
+		if (request_options.body) {
+			request_options.headers[&#x27;Content-Length&#x27;] = Buffer.byteLength(request_options.body, &#x27;utf8&#x27;);
+		} else {
+			request_options.headers[&#x27;Content-Length&#x27;] = 0;
+		}
+	}
+
+	// Perform the vimeo api request
+	var req = client.request(request_options, this._handleRequest(callback));
+
+	// Write the request body
+	if (request_options.body) {
+		req.write(request_options.body);
+	}
+
+	// notify user of any weird connection/request errors
+	req.on(&#x27;error&#x27;, function(e) {
+		callback(e);
+	});
+
+	// send the request
+	req.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+error       | error    | If this is provided, it means the request failed. The other parameters may, or may not contain additional
+ information. You should check the status code to understand exactly what error you have encountered.
+body        | object   | The parsed request body. All responses are JSON so we parse this for you, and give you the result.
+status_code | number   | The HTTP status code of the response. This partially informs you about the success of your API request.
+headers     | object   | An object containing all of the response headers.
+
+
+
+	lib.<span class="apidocCodeKeywordSpan">request</span>(/*options*/{
+        // This is the path for the videos contained within the staff picks channels
+        path : &#x27;/channels/staffpicks/videos&#x27;,
+        // This adds the parameters to request page two, and 10 items per page
+        query : {
+            page : 2,
+            per_page : 10
+        }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.Vimeo.prototype.streamingUpload" id="apidoc.element.vimeo.Vimeo.prototype.streamingUpload">
+        function <span class="apidocSignatureSpan">vimeo.Vimeo.prototype.</span>streamingUpload
+        <span class="apidocSignatureSpan">(path, video_uri, callback, progress_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">streamingUpload = function (path, video_uri, callback, progress_callback) {
+	var _self = this;
+
+	if (typeof video_uri === &#x27;function&#x27;) {
+		progress_callback = callback;
+		callback = video_uri;
+		video_uri = undefined;
+	}
+
+	var options = {
+		method : video_uri ? &#x27;PUT&#x27; : &#x27;POST&#x27;,
+		path : video_uri ? video_uri + &#x27;/files&#x27; : &#x27;/me/videos&#x27;,
+		query : {
+			type : &#x27;streaming&#x27;
+		}
+	};
+
+	this.request(options, function (err, ticket, status, headers) {
+		if (err) {
+			return callback(err);
+		}
+
+		var file = new FileStreamer(path, ticket.upload_link_secure, progress_callback);
+
+		file.ready(function () {
+			_self.request({
+				method : &#x27;DELETE&#x27;,
+				path : ticket.complete_uri
+			}, callback);
+		});
+
+		file.error(callback);
+		file.upload();
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+file      | string   | Full path to the upload file on the local system
+video_uri | string   | (Optional) Uri of an existing video. If provided, the uploaded video will replace the source file of this
+ video.
+callback  | function | A callback that will be executed when the upload is comple, or has failed. It will match the callback of
+an [API request](#callback).
+progress_callback | function | A callback that will be executed periodically during the file upload. This callback receives two
+parameters, the total bytes uploaded and the total file size. Note that `console.log` is slow, and frequent logs can negatively
+impact your performance speed.
+
+**Upload**
+
+    lib.<span class="apidocCodeKeywordSpan">streamingUpload</span>(&#x27;/home/aaron/Downloads/ada.mp4&#x27;,  function (error,
+body, status_code, headers) {
+if (error) {
+    throw error;
+}
+
+lib.request(headers.location, function (error, body, status_code, headers) {
+    console.log(body);
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo.filestreamer" id="apidoc.module.vimeo.filestreamer">module vimeo.filestreamer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.filestreamer" id="apidoc.element.vimeo.filestreamer.filestreamer">
+        function <span class="apidocSignatureSpan">vimeo.</span>filestreamer
+        <span class="apidocSignatureSpan">(file_path, upload_endpoint, progress_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileStreamer(file_path, upload_endpoint, progress_callback) {
+	if (!file_path) {
+		throw new Error(&#x27;You must provide a file path&#x27;);
+	}
+
+	if (!upload_endpoint) {
+		throw new Error(&#x27;You must provide an upload endpoint&#x27;);
+	}
+
+	this._endpoint = url_module.parse(upload_endpoint);
+	this._path = file_path;
+	this.progress_callback = progress_callback;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo.filestreamer.prototype" id="apidoc.module.vimeo.filestreamer.prototype">module vimeo.filestreamer.prototype</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._closeFile" id="apidoc.element.vimeo.filestreamer.prototype._closeFile">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_closeFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_closeFile = function () {
+	if (this._fd) {
+		fs_module.close(this._fd, function (close_err) {
+			if (close_err) {
+				this._error(close_err);
+			}
+		});
+		this._fd = null;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+FileStreamer.prototype._ready = function () {
+	var _self = this;
+
+	// If we think we are ready to complete, check with the server and see if they have the whole file
+	this._getNewStart(function (err, start) {
+		if (err) {
+			// If the check fails, close the file and error out immediately
+			_self.<span class="apidocCodeKeywordSpan">_closeFile</span>();
+			return _self._error(err);
+		}
+
+		if (start &#x3e;= _self._file_size) {
+			// If the server says they have the whole file, close it and then return back to the user
+			_self._closeFile()
+			_self._user_ready();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._error" id="apidoc.element.vimeo.filestreamer.prototype._error">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_error
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_error = function (error) {
+	this.error = function (fn) {
+		fn(error);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var _self = this;
+
+	// If we think we are ready to complete, check with the server and see if they have the whole file
+	this._getNewStart(function (err, start) {
+		if (err) {
+			// If the check fails, close the file and error out immediately
+			_self._closeFile();
+			return _self.<span class="apidocCodeKeywordSpan">_error</span>(err);
+		}
+
+		if (start &#x3e;= _self._file_size) {
+			// If the server says they have the whole file, close it and then return back to the user
+			_self._closeFile()
+			_self._user_ready();
+		} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._getNewStart" id="apidoc.element.vimeo.filestreamer.prototype._getNewStart">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_getNewStart
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getNewStart = function (next) {
+	var _self = this;
+
+	this._upload_endpoint_request({
+		method : &#x27;PUT&#x27;,
+		headers : {
+			&#x27;Content-Range&#x27; : &#x27;bytes */*&#x27;,
+			&#x27;Content-Type&#x27; : &#x27;application/octet-stream&#x27;
+		}
+	}, function (err, status, headers) {
+		if (err) {
+			return next(err);
+		}
+
+		if (status === 308) {
+			return next(null, parseInt(headers.range.split(&#x27;-&#x27;)[1]));
+		} else {
+			return next(new Error(&#x27;Invalid http status returned from range query: [&#x27; + status + &#x27;]&#x27;));
+		}
+	}).end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * Do not call this outside of the library.
+ */
+FileStreamer.prototype._ready = function () {
+	var _self = this;
+
+	// If we think we are ready to complete, check with the server and see if they have the whole file
+	this.<span class="apidocCodeKeywordSpan">_getNewStart</span>(function (err, start) {
+		if (err) {
+			// If the check fails, close the file and error out immediately
+			_self._closeFile();
+			return _self._error(err);
+		}
+
+		if (start &#x3e;= _self._file_size) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._putFile" id="apidoc.element.vimeo.filestreamer.prototype._putFile">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_putFile
+        <span class="apidocSignatureSpan">(start, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_putFile = function (start, callback) {
+	var _self = this;
+
+	var file = fs_module.createReadStream(_self._path, {
+		start : start
+	});
+
+	file.on(&#x27;error&#x27;, function (err) {
+		callback(err);
+	});
+	
+	var uploaded_size = start || 0;
+
+	file.on(&#x27;data&#x27;, function(chunk) {
+		uploaded_size += chunk.length || 0;
+		if (_self.progress_callback) {
+			_self.progress_callback(uploaded_size, _self._file_size);
+		}
+	});
+	
+	var headers =  {
+		&#x27;Content-Length&#x27; : _self._file_size,
+		&#x27;Content-Type&#x27; : &#x27;video/mp4&#x27;
+	};
+
+	headers[&#x27;Content-Range&#x27;] = &#x27;bytes &#x27; + start + &#x27;-&#x27; + _self._file_size + &#x27;/&#x27; + _self._file_size;
+
+	var req = _self._upload_endpoint_request({
+		method : &#x27;PUT&#x27;,
+		headers : headers
+	}, callback);
+
+	file.pipe(req);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Send a file chunk, starting at byte [start] and ending at the end of the file
+ *
+ * @param  {Number} start
+ */
+FileStreamer.prototype._streamChunk = function (start) {
+	var _self = this;
+	_self.<span class="apidocCodeKeywordSpan">_putFile</span>(start, function (put_err, code, headers) {
+
+		// Catches a rare vimeo server bug and exits out early
+		if (put_err &#x26;&#x26; code) {
+			_self._closeFile();
+			return _self._error(put_err);
+		}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._ready" id="apidoc.element.vimeo.filestreamer.prototype._ready">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_ready
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_ready = function () {
+	var _self = this;
+
+	// If we think we are ready to complete, check with the server and see if they have the whole file
+	this._getNewStart(function (err, start) {
+		if (err) {
+			// If the check fails, close the file and error out immediately
+			_self._closeFile();
+			return _self._error(err);
+		}
+
+		if (start &#x3e;= _self._file_size) {
+			// If the server says they have the whole file, close it and then return back to the user
+			_self._closeFile()
+			_self._user_ready();
+		} else {
+			// If the server does not have the whole file, upload from where we left off
+			_self._streamChunk(start);
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+		// Catches a rare vimeo server bug and exits out early
+		if (put_err &#x26;&#x26; code) {
+			_self._closeFile();
+			return _self._error(put_err);
+		}
+
+		_self.<span class="apidocCodeKeywordSpan">_ready</span>();
+	});
+};
+
+/**
+* Make the HTTP put request sending a part of a file up to the upload server
+*
+* @param  {Number}   start    The first byte of the file
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._streamChunk" id="apidoc.element.vimeo.filestreamer.prototype._streamChunk">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_streamChunk
+        <span class="apidocSignatureSpan">(start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_streamChunk = function (start) {
+	var _self = this;
+	_self._putFile(start, function (put_err, code, headers) {
+
+		// Catches a rare vimeo server bug and exits out early
+		if (put_err &#x26;&#x26; code) {
+			_self._closeFile();
+			return _self._error(put_err);
+		}
+
+		_self._ready();
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+		if (start &#x3e;= _self._file_size) {
+			// If the server says they have the whole file, close it and then return back to the user
+			_self._closeFile()
+			_self._user_ready();
+		} else {
+			// If the server does not have the whole file, upload from where we left off
+			_self.<span class="apidocCodeKeywordSpan">_streamChunk</span>(start);
+		}
+	});
+};
+
+/**
+* Assign a callback to be called whenever the file is done uploading.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._upload_endpoint_request" id="apidoc.element.vimeo.filestreamer.prototype._upload_endpoint_request">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_upload_endpoint_request
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_upload_endpoint_request = function (options, callback) {
+	var request_options = {
+		protocol : this._endpoint.protocol,
+		host : this._endpoint.hostname,
+		port : this._endpoint.port,
+		query : this._endpoint.query,
+		headers : options.headers,
+		path : this._endpoint.path,
+		method : options.method
+	};
+
+	var client = request_options.protocol === &#x27;https:&#x27; ? https_module : http_module;
+	var req = client.request(request_options);
+
+	req.on(&#x27;response&#x27;, function (res) {
+		res.setEncoding(&#x27;utf8&#x27;);
+
+		var buffer = &#x27;&#x27;;
+		res.on(&#x27;readable&#x27;, function () {
+			buffer += res.read();
+		});
+
+		if (res.statusCode &#x3e; 399) {
+			// failed api calls should wait for the response to end and then call the callback with an error.
+			res.on(&#x27;end&#x27;, function () {
+				callback(new Error(&#x27;[&#x27; + buffer + &#x27;]&#x27;), res.statusCode, res.headers);
+			});
+		} else {
+			// successful api calls should wait for the response to end and then call the callback with the response body
+			res.on(&#x27;end&#x27;, function () {
+				callback(null, res.statusCode, res.headers);
+			});
+		}
+	});
+
+	// notify user of any weird connection/request errors
+	req.on(&#x27;error&#x27;, function(e) {
+		callback(e);
+	});
+
+	return req;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var headers =  {
+		&#x27;Content-Length&#x27; : _self._file_size,
+		&#x27;Content-Type&#x27; : &#x27;video/mp4&#x27;
+	};
+
+	headers[&#x27;Content-Range&#x27;] = &#x27;bytes &#x27; + start + &#x27;-&#x27; + _self._file_size + &#x27;/&#x27; + _self._file_size
+;
+
+	var req = _self.<span class="apidocCodeKeywordSpan">_upload_endpoint_request</span>({
+		method : &#x27;PUT&#x27;,
+		headers : headers
+	}, callback);
+
+	file.pipe(req);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype._user_ready" id="apidoc.element.vimeo.filestreamer.prototype._user_ready">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>_user_ready
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_user_ready = function () {
+	this.ready = function (fn) {
+		fn();
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			_self._closeFile();
+			return _self._error(err);
+		}
+
+		if (start &#x3e;= _self._file_size) {
+			// If the server says they have the whole file, close it and then return back to the user
+			_self._closeFile()
+			_self.<span class="apidocCodeKeywordSpan">_user_ready</span>();
+		} else {
+			// If the server does not have the whole file, upload from where we left off
+			_self._streamChunk(start);
+		}
+	});
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype.error" id="apidoc.element.vimeo.filestreamer.prototype.error">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>error
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (fn) {
+	this._error = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype.ready" id="apidoc.element.vimeo.filestreamer.prototype.ready">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>ready
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ready = function (fn) {
+	this._user_ready = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.filestreamer.prototype.upload" id="apidoc.element.vimeo.filestreamer.prototype.upload">
+        function <span class="apidocSignatureSpan">vimeo.filestreamer.prototype.</span>upload
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">upload = function () {
+	var _self = this;
+
+	fs_module.stat(_self._path, function (stat_err, stats) {
+		if (stat_err) {
+			return _self._error(stat_err);
+		}
+
+		_self._file_size = stats.size;
+
+		fs_module.open(_self._path, &#x27;r&#x27;, function(open_err, fd) {
+			if (open_err) {
+				return this._error(open_err);
+			}
+
+			_self._fd = fd;
+			_self._streamChunk(0);
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vimeo.vimeo_module" id="apidoc.module.vimeo.vimeo_module">module vimeo.vimeo_module</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vimeo.vimeo_module.Vimeo" id="apidoc.element.vimeo.vimeo_module.Vimeo">
+        function <span class="apidocSignatureSpan">vimeo.vimeo_module.</span>Vimeo
+        <span class="apidocSignatureSpan">(client_id, client_secret, access_token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Vimeo(client_id, client_secret, access_token) {
+	this._client_id = client_id;
+	this._client_secret = client_secret;
+
+	if (access_token) {
+		this.access_token = access_token;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
